@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import mongoose, { Schema } from "mongoose";
 
-const itemSchema = new mongoose.Schema({
+const itemSchema = new Schema({
     type: {
         type: String,
         required: true,
@@ -9,8 +9,11 @@ const itemSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-});
+},
+    {
+        timestamps: true
+    }
+);
 
-const Item = mongoose.model('Item', itemSchema);
+export const Item = mongoose.model('Item', itemSchema);
 
-module.exports = Item;
